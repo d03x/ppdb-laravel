@@ -11,7 +11,7 @@ return new class() extends Migration {
     public function up(): void
     {
         Schema::create('ref_kebutuhan_khususes', function (Blueprint $table) {
-            $table->id()
+            $table->id();
             $table->string('nama');
             $table->timestamps();
         });
