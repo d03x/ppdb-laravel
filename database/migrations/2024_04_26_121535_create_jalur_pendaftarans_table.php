@@ -10,9 +10,14 @@ return new class() extends Migration {
      */
     public function up(): void
     {
-        Schema::create('ref_kebutuhan_khususes', function (Blueprint $table) {
-            $table->id()
+        Schema::create('jalur_pendaftarans', function (Blueprint $table) {
+            $table->uuid('id')->primary();
             $table->string('nama');
+            $table->date('start');
+            $table->date('end');
+            $table->boolean('is_lock');
+            $table->string('deskripsi');
+            $table->string('persyaratan');
             $table->timestamps();
         });
     }
@@ -22,6 +27,6 @@ return new class() extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('ref_kebutuhan_khususes');
+        Schema::dropIfExists('jalur_pendaftarans');
     }
 };
