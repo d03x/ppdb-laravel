@@ -7,5 +7,7 @@ Route::post('/sesi/authenticated', [App\Http\Controllers\Auth\LoginController::c
 
 
 Route::middleware('auth')->group(function(){
-    
+    Route::get('dashboard', function () {
+        return view('pages.dashboard');
+    })->name('dashboard');
 });

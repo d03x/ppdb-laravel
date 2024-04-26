@@ -3,7 +3,9 @@
     <x-slot name='head'>
         {!! $head ?? null !!}
     </x-slot>
-    {{ $slot }}
+    @isset($slot)
+        {{$slot}}
+    @endisset
     <x-slot name='footers'>
         {!! $footers ?? null !!}
     </x-slot>

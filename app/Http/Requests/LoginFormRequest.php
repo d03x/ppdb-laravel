@@ -48,7 +48,7 @@ class LoginFormRequest extends FormRequest
     public function authenticated()
     {
         $user = $this->validated();
-        if (!Auth::attempt($user, true)) {
+        if (!Auth::attempt($user, $this->boolean('remember_me'))) {
             throw ValidationException::withMessages([
                 'email' => trans('auth.failed'),
             ]);
