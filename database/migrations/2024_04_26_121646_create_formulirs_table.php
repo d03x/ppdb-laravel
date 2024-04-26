@@ -38,8 +38,8 @@ return new class() extends Migration {
             $table->string('nama')->nullable();
             $table->string('nisn')->nullable();
             $table->string('nik')->nullable();
-            $table->foreignIdFor(RefAgama::class)->nullable()->constrained('agamas');
-            $table->foreignIdFor(RefKebutuhanKhusus::class)->nullable()->constrained();
+            $table->foreignIdFor(RefAgama::class)->nullable()->constrained('ref_agamas')->nullOnDelete()->cascadeOnUpdate();
+            $table->foreignIdFor(RefKebutuhanKhusus::class)->nullable()->constrained('ref_kebutuhan_khususes')->nullOnDelete()->cascadeOnUpdate();
             $table->date('tanggal_lahir')->nullable();
             $table->string('tempat_lahir')->nullable();
             $table->enum('golongan_darah', [

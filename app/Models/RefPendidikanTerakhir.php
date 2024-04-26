@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class RefPendidikanTerakhir extends Model
 {
-    use HasUuids;
     use HasFactory;
 }

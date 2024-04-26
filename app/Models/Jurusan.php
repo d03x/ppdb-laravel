@@ -10,4 +10,8 @@ class Jurusan extends Model
 {
     use HasFactory;
     use HasUuids;
+    protected $fillable = ['nama','kode'];
+    public function formulir(){
+        return $this->belongsTo(Formulir::class);
+    }
 }

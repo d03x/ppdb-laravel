@@ -15,7 +15,7 @@ return new class() extends Migration {
             $table->string('nama');
             $table->date('start');
             $table->date('end');
-            $table->boolean('is_lock');
+            $table->boolean('aktif')->default(false);
             $table->string('deskripsi');
             $table->string('persyaratan');
             $table->timestamps();

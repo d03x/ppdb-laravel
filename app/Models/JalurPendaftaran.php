@@ -10,4 +10,15 @@ class JalurPendaftaran extends Model
 {
     use HasUuids;
     use HasFactory;
+    protected $fillable = [
+        'nama',
+        'start',
+        'end',
+        'aktif',
+        'deskripsi',
+        'persyaratan'
+    ];
+    public function formulir(){
+        return $this->belongsTo(Formulir::class);
+    }
 }

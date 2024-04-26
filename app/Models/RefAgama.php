@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class RefAgama extends Model
 {
-    use HasUuids;
     use HasFactory;
+    protected $fillable = ['nama'];
+    public function formulir(){
+        return $this->belongsTo(Formulir::class);
+    }
 }
