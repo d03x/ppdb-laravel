@@ -3,6 +3,8 @@
 namespace App\Models;
 
 use App\HasFields;
+use App\StatusAkhirPendaftaran;
+use App\StatusFormulir;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -73,6 +75,11 @@ class Formulir extends Model
         "nama_instansi_wali",
         "jabatan_wali",
         "telp_wali",
+    ];
+
+    protected $casts = [
+        'status_akhir' => StatusAkhirPendaftaran::class,
+        'status_formulir' => StatusFormulir::class,
     ];
     protected $with = ['user', 'jurusan', 'jalur_pendaftaran', 'agama', 'kebutuhan_khusus'];
     public function user()

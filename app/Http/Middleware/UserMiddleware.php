@@ -21,7 +21,10 @@ class UserMiddleware
         if (!Cache::get('current_user')) {
             Cache::set('current_user', Auth::user(), now()->addMinutes(1));
         }
-        View::share('current_user', Cache::get('current_user'));
+        $user = Cache::get('current_user');
+        View::share('current_user', $user);
+        View::share('status_formulir',$user->formulir->status_formulir);
+        View::share('status_akhir',$user->formulir->status_akhir);
         return $next($request);
     }
 }

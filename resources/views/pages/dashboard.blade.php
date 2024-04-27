@@ -1,3 +1,8 @@
 <x-app-layout title="Wellcome">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste vel ut minima praesentium maiores ratione vero quaerat consequuntur! Alias aspernatur quasi ducimus libero quibusdam, beatae nesciunt voluptates nobis reprehenderit. Obcaecati.
+    <div class="flex flex-col sm:flex-row gap-5">
+        @include('pages.partials.welcome')
+        <div class="sm:max-w-sm w-full">
+            @include('pages.partials.home.notifikasi')
+        </div>
+    </div>
 </x-app-layout>

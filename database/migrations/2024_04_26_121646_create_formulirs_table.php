@@ -25,14 +25,14 @@ return new class() extends Migration {
                 'submitted',
                 'pending',
                 'rejected',
-                'accepted',
+                'approved',
             ])->default('pending');
             $table->enum('status_akhir', [
                 'pending',
                 'rejected',
-                'accepted',
+                'approved',
             ])->default('pending');
-            $table->dateTime('accepted_date')->nullable();
+            $table->dateTime('approved_form_date')->nullable();
             $table->boolean('is_lock')->default(false);
             // bidoata
             $table->string('nama')->nullable();

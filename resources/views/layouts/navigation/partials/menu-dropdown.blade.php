@@ -9,7 +9,7 @@
              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
           </svg>
     </button>
-    <ul id="menu_dropdown" class="hidden py-2 space-y-2">
+    <ul id="menu_dropdown" class="hidden">
        {{ $dropdown_item }}
   </ul>
 </li>

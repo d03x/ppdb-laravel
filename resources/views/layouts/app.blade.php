@@ -8,7 +8,7 @@
         @include('layouts.navigation.navbar')
         @include('layouts.navigation.index')
         <div class="p-4 sm:ml-64">
-            <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg dark:border-gray-700 mt-14">
+            <div class="sm:p-4  border-gray-200   dark:border-gray-700 mt-16 sm:mt-14">
                 {{ $slot }}
             </div>
         </div>
