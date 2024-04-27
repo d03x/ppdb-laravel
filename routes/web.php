@@ -10,7 +10,6 @@ Route::post('/sesi/authenticated', [App\Http\Controllers\Auth\LoginController::c
 
 Route::middleware(['auth',UserMiddleware::class])->group(function(){
     Route::get('dashboard', function () {
-        dd(Auth::user()->formulir->biodata());
         return view('pages.dashboard');
     })->name('dashboard');
 });

@@ -8,6 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class RefPekerjaanOrangTua extends Model
 {
-    use HasUuids;
     use HasFactory;
 }

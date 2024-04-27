@@ -1,4 +1,3 @@
-<x-app-layout title='dashboard'>
-    <h1>Selamat datang dadan {{ $current_user->name}}</h1>
-    @dd($current_user->formulir)
+<x-app-layout title="Wellcome">
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iste vel ut minima praesentium maiores ratione vero quaerat consequuntur! Alias aspernatur quasi ducimus libero quibusdam, beatae nesciunt voluptates nobis reprehenderit. Obcaecati.
 </x-app-layout>
