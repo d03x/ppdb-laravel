@@ -12,7 +12,12 @@ Route::middleware(['auth', UserMiddleware::class])->group(function () {
     Route::get('dashboard', [HomeController::class, 'index'])->name('dashboard');
     Route::get('dashboard/pendaftaran', [PendaftaranController::class, 'index'])->name('dashboard.pendaftaran');
     Route::prefix('dashboard')->name('dashboard.')->group(function () {
+        /**
+         * contains route for pendaftaran
+         */
         Route::get('pendaftaran', [PendaftaranController::class, 'index'])->name('pendaftaran');
         Route::get('pendaftaran/cetak-kartu', [PendaftaranController::class, 'cetakKartu'])->name('pendaftaran.cetak_kartu');
+        Route::get('pendaftaran/cetak-formulir', fn()=>true)->name('pendaftaran.cetak_formulir');
+
     });
 });

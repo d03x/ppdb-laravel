@@ -23,8 +23,8 @@ class UserMiddleware
         }
         $user = Cache::get('current_user');
         View::share('current_user', $user);
-        View::share('status_formulir',$user->formulir->status_formulir);
-        View::share('status_akhir',$user->formulir->status_akhir);
+        View::share('status_formulir',$user->formulir?->status_formulir);
+        View::share('status_akhir',$user->formulir?->status_akhir);
         return $next($request);
     }
 }

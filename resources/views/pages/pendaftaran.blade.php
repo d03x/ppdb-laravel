@@ -8,6 +8,8 @@
             @elseif (App\StatusFormulir::APPROVED === $status_formulir && App\StatusAkhirPendaftaran::PENDING !== $status_akhir)
                 @include('pages.partials.pendaftaran.status_akhir')
             @endif
+            @else 
+            @include('pages.partials.pendaftaran.buat')
         @endif
     </div>
 </x-app-layout>
