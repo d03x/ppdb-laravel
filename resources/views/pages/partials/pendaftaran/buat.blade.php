@@ -3,13 +3,13 @@
     $jenis = [
         [
             'id' => 1,
-            'nama' => "PINDAHAN"
-],
-[
+            'nama' => 'PINDAHAN',
+        ],
+        [
             'id' => 2,
-            'nama' => "BARU"
-        ]
-    ]
+            'nama' => 'BARU',
+        ],
+    ];
 @endphp
 <form action="" method="POST">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
@@ -26,10 +26,10 @@
             <x-combobox :items="$jenis" value="nama" label='nama' name='jenis_pendaftaran' />
         </div>
     </div>
-        <p class="italic text-sm my-2 text-destructive">
-            Pastikan isian anda sudah benar dan tidak ada kesalahan. Karena form ini tidak bisa di edit atau di ubah
-        </p>
-        <div>
-            <x-button variant="default">SIMPAN</x-button>
-        </div>
+    <p class="italic text-sm my-2 text-destructive">
+        Pastikan isian anda sudah benar dan tidak ada kesalahan. Karena form ini tidak bisa di edit atau di ubah
+    </p>
+    <div>
+        <x-button variant="default">SIMPAN</x-button>
+    </div>
 </form>
