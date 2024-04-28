@@ -1,0 +1,1 @@
+Selamat anda diterima

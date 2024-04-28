@@ -2,9 +2,9 @@
 
 namespace App;
 
-enum StatusAkhirPendaftaran : string
+enum StatusAkhirPendaftaran: string
 {
-   case PENDING = "pending";
-   case REJECTED = 'rejected';
-   case ACCPETED = 'accepted';
+    case PENDING = 'pending';
+    case REJECTED = 'rejected';
+    case APPROVED = 'approved';
 }

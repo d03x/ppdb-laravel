@@ -5,6 +5,8 @@
                 @include('pages.partials.pendaftaran.submitted-form')
             @elseif (App\StatusFormulir::APPROVED === $status_formulir && App\StatusAkhirPendaftaran::PENDING === $status_akhir)
                 @include('pages.partials.pendaftaran.approved-form')
+            @elseif (App\StatusFormulir::APPROVED === $status_formulir && App\StatusAkhirPendaftaran::PENDING !== $status_akhir)
+                @include('pages.partials.pendaftaran.status_akhir')
             @endif
         @endif
     </div>
