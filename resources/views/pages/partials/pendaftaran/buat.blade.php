@@ -11,12 +11,14 @@
         ],
     ];
 @endphp
-<form action="" method="POST">
+<form action="{{ route('dashboard.pendaftaran.simpan') }}" method="POST">
     <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div class="">
             <x-label>Jalur Pendaftaran</x-label>
             <x-combobox :items="$jalur" value='id' label='nama' name="jalur_pendaftaran_id" />
         </div>
+        @csrf
+        @method("POST")
         <div class="">
             <x-label>Jurusan</x-label>
             <x-combobox :items="$jurusan" value="id" label="nama" name="jurusan_id" />
