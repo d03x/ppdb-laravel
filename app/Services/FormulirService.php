@@ -27,7 +27,6 @@ class FormulirService
         $data = (array) $this->getFormulirs();
        foreach ($data as $key => $value) {
             $noEmptyData[$key] = 0;
-            $count = count((array)$value);
             foreach( $value as $values ) {
                 if(!empty($values) && null !== $values) {
                     $noEmptyData[$key]++;
