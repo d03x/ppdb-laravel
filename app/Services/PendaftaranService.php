@@ -7,6 +7,7 @@ use App\Exceptions\GagalMenyimpanException;
 use App\Exceptions\PendaftaranSudahAdaException;
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class PendaftaranService
 {
@@ -20,7 +21,9 @@ class PendaftaranService
         }
         $data = [
             'no_pendaftaran' => "PPDB-".now()->format('Y')."-". rand(),
-            ...$data
+            ...$data,
+            'nama'=> Auth::user()->name,
+            'email' => Auth::user()->email,
         ];
        $save = $user->formulir()->firstOrCreate($data);
         if ( !$save ){
