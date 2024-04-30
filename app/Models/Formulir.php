@@ -106,17 +106,17 @@ class Formulir extends Model
     public function scopeBiodata($query)
     {
 
-        $data = $query->first()->toArray();
+        $data = $query->first()?->toArray() ?? [];
         return array_intersect_key($data, array_flip($this->field_biodata));
     }
     public function scopeOrangTua($query)
     {
-        $data = $query->first()->toArray();
+        $data = $query->first()?->toArray() ?? [];
         return array_intersect_key($data, array_flip($this->field_orang_tua));
     }
     public function scopePriodik($query)
     {
-        $data = $query->first()->toArray();
+        $data = $query->first()?->toArray() ?? [];
         return array_intersect_key($data, array_flip($this->field_priodik));
     }
 }
