@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Forms\BiodataController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Middleware\UserMiddleware;
@@ -19,5 +20,8 @@ Route::middleware(['auth', UserMiddleware::class])->group(function () {
         Route::get('pendaftaran/cetak-kartu', [PendaftaranController::class, 'cetakKartu'])->name('pendaftaran.cetak_kartu');
         Route::get('pendaftaran/cetak-formulir', fn () => true)->name('pendaftaran.cetak_formulir');
         Route::post('pendaftaran/simpan', [PendaftaranController::class, 'simpan_pendaftaran'])->name('pendaftaran.simpan');
+        Route::prefix('/pendaftaran/form')->name('pendaftaran.forms.')->group(function(){
+            Route::get('biodata',BiodataController::class)->name('biodata');
+        });
     });
 });

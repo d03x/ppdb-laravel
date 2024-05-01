@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Exceptions\GagalMenyimpanDataException;
 use App\Exceptions\GagalMenyimpanException;
 use App\Exceptions\PendaftaranSudahAdaException;
+
 use App\Models\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Auth;
