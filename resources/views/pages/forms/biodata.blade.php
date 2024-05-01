@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     <x-label for="bahasa_sehari_hari">Bahasa Sehari Hari</x-label>
-                    <x-input selected="{{old('bahasa_sehari_hari',$data['bahasa_sehari_hari'])}}" name="bahasa_sehari_hari" placeholder="Bahasa Sehari Hari Anda" />
+                    <x-input value="{{old('bahasa_sehari_hari',$data['bahasa_sehari_hari'])}}" name="bahasa_sehari_hari" placeholder="Bahasa Sehari Hari Anda" />
                     <x-input-error :messages="$errors->get('bahasa_sehari_hari')"/>
                 </div>
                 <div>

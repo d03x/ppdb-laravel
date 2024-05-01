@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Exceptions\GagalMenyimpanDataException;
-use App\Models\Formulir;
 use Illuminate\Support\Facades\Auth;
 
 class FormulirService
@@ -13,7 +12,7 @@ class FormulirService
      */
     public function getFormulirs()
     {
-        $biodata = Formulir::where('user_id', Auth::id());
+        $biodata = Auth::user()->formulir;
 
         return [
             'biodata' => $biodata->biodata(),
@@ -26,28 +25,31 @@ class FormulirService
     {
         $noEmptyData = [];
         $data = (array) $this->getFormulirs();
-       foreach ($data as $key => $value) {
+        foreach ($data as $key => $value) {
             $noEmptyData[$key] = 0;
-            foreach( $value as $values ) {
-                if(!empty($values) && null !== $values) {
-                    $noEmptyData[$key]++;
-                } 
+            foreach ($value as $values) {
+                if (!empty($values) && null !== $values) {
+                    ++$noEmptyData[$key];
+                }
             }
-       }
-       $persentases =[];
-       foreach($noEmptyData  as $key => $value){
-            if($value > 0){
-                $persentases[$key]  = round(($value / count($data[$key]) ) * 100,1);
-            }else{
+        }
+        $persentases = [];
+        foreach ($noEmptyData as $key => $value) {
+            if ($value > 0) {
+                $persentases[$key] = round(($value / count($data[$key])) * 100, 1);
+            } else {
                 $persentases[$key] = 0;
             }
-       }
-       return $persentases;
+        }
+
+        return $persentases;
     }
-    public function simpanBiodata(array $data){
-        if( Auth::user()->formulir()->update($data) ) {
+
+    public function simpanBiodata(array $data)
+    {
+        if (tap(Auth::user()->formulir())->update($data)) {
             return true;
         }
-        throw new GagalMenyimpanDataException("Data gagal di simpan");
+        throw new GagalMenyimpanDataException('Data gagal di simpan');
     }
 }

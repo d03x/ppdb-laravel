@@ -7,12 +7,12 @@ use App\Http\Requests\SimpanBiodataRequest;
 use App\Models\RefAgama;
 use App\Models\RefKebutuhanKhusus;
 use App\Services\FormulirService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class BiodataController extends Controller
 {
-    public function __invoke(){
+    public function __invoke()
+    {
         $alat_transportasi = [
             'MOTOR',
             'JETPAK',
@@ -26,16 +26,17 @@ class BiodataController extends Controller
             'KAPAL LAUT',
             'BANTUAN JIN',
             'MOTOR LISTRIK',
-            'JALAN KAKI'
+            'JALAN KAKI',
         ];
         $tempat_tinggals = [
-            "Orang Tua",
-            "Kakek/Nenek",
-            "Paman/Bibi",
-            "Saudara Kandung",
-            "Kerabat",
-            "Panti/Pontren",
+            'Orang Tua',
+            'Kakek/Nenek',
+            'Paman/Bibi',
+            'Saudara Kandung',
+            'Kerabat',
+            'Panti/Pontren',
         ];
+
         return view('pages.forms.biodata', [
             'data' => Auth::user()->formulir->biodata(),
             'agamas' => RefAgama::all(),
@@ -44,8 +45,11 @@ class BiodataController extends Controller
             'tempat_tinggals' => $tempat_tinggals,
         ]);
     }
-    public function simpan(SimpanBiodataRequest $simpanBiodataRequest, FormulirService $formulirService){
+
+    public function simpan(SimpanBiodataRequest $simpanBiodataRequest, FormulirService $formulirService)
+    {
         $simpanBiodataRequest->simpan($formulirService);
+
         return redirect()->route('dashboard.pendaftaran');
     }
 }

@@ -16,7 +16,11 @@
                 <x-button size="sm">
                     <div class="flex gap-1 items-center">
                         <i class="pi pi-file-edit"></i>
-                        <span>Isi Alamat</span>
+                        @if ($current_user->formulir->biodata())
+                            <span>Isi Alamat</span>
+                        @else
+                            <span>Biodata</span>
+                        @endif
                     </div>
                 </x-button>
             @else

@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use App\Exceptions\GagalMenyimpanDataException;
 use App\Services\FormulirService;
+use GuzzleHttp\Psr7\Request;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
@@ -26,30 +27,30 @@ class SimpanBiodataRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "nama" => "required",
-            "nisn" => "required",
-            "nik" => "required",
-            "ref_agama_id" => "required",
-            "ref_kebutuhan_khusus_id" => "required",
-            "tanggal_lahir" => "required",
-            "tempat_lahir" => "required",
-            "golongan_darah" => "required",
-            "tinggal_dengan" => "required",
-            "bahasa_sehari_hari" => "required",
-            "email" => "required",
-            "no_telepon_aktif" => "required",
-            "no_wa" => "required",
-            "alat_transportasi" => "required",
+            'nama' => 'required',
+            'nisn' => 'required|max:10|min:10',
+            'nik' => 'required|max:16|min:16',
+            'ref_agama_id' => 'required',
+            'ref_kebutuhan_khusus_id' => 'required',
+            'tanggal_lahir' => 'required',
+            'tempat_lahir' => 'required',
+            'golongan_darah' => 'required',
+            'tinggal_dengan' => 'required',
+            'bahasa_sehari_hari' => 'required',
+            'email' => 'required',
+            'no_telepon_aktif' => 'required',
+            'no_wa' => 'required',
+            'alat_transportasi' => 'required',
         ];
     }
-    public function simpan(FormulirService $formulirService){
-        try{
+
+    public function simpan(FormulirService $formulirService)
+    {
+        try {
             $data = $this->validated();
             $formulirService->simpanBiodata($data);
-        }catch(GagalMenyimpanDataException $gagalMenyimpanDataException){
-            throw ValidationException::withMessages([
-                'nama' => $gagalMenyimpanDataException->getMessage()
-            ]);
+        } catch (GagalMenyimpanDataException $gagalMenyimpanDataException) {
+            throw ValidationException::withMessages(['nama' => $gagalMenyimpanDataException->getMessage()]);
         }
     }
 }

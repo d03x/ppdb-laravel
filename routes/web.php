@@ -20,9 +20,12 @@ Route::middleware(['auth', UserMiddleware::class])->group(function () {
         Route::get('pendaftaran/cetak-kartu', [PendaftaranController::class, 'cetakKartu'])->name('pendaftaran.cetak_kartu');
         Route::get('pendaftaran/cetak-formulir', fn () => true)->name('pendaftaran.cetak_formulir');
         Route::post('pendaftaran/simpan', [PendaftaranController::class, 'simpan_pendaftaran'])->name('pendaftaran.simpan');
-        Route::prefix('/pendaftaran/form')->name('pendaftaran.forms.')->group(function(){
-            Route::get('biodata',BiodataController::class)->name('biodata');
-            Route::post('biodata',[BiodataController::class,'simpan'])->name('biodata.simpan');
+        Route::prefix('/pendaftaran/form')->name('pendaftaran.forms.')->group(function () {
+            Route::get('biodata', BiodataController::class)->name('biodata');
+            Route::post('biodata', [BiodataController::class, 'simpan'])->name('biodata.simpan');
+            // alamat
+            Route::get('alamat', BiodataController::class)->name('alamat');
+            Route::post('alamat', [BiodataController::class, 'simpan'])->name('alamat.simpan');
         });
     });
 });
