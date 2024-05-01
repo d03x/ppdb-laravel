@@ -7,6 +7,7 @@
             'B' => 'B',
         ];
     @endphp
+    
     <x-form-card title="ISI BIODATA" description="lorem ipu">
         <form action="{{ route('dashboard.pendaftaran.forms.biodata.simpan') }}" method="POST">
             @csrf

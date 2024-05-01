@@ -5,35 +5,13 @@
 <div class="grid grid-cols-1 sm:grid-cols-2  gap-3">
     <div class="">
         <h1 class="my-3 font-semibold text-muted-foreground uppercase">Panduan Pendaftaran</h1>
-        <ul class="bg-secondary p-4 rounded shadow-card-foreground space-y-3">
-
-            <li>
-                <p class="font-bold">Langkah Pertama</p>
-                <p class="font-semibold italic">Isi Biodata</p>
-                <p class="text-sm">
-                    Untuk mengisi Biodata kamu bisa klik menu terus pendaftaran terus klik data orang tua
-                </p>
-            </li>
-            <li>
-                <p class="font-bold">Langkah Kedua</p>
-                <p class="font-semibold italic">Isi Data Orang Tua</p>
-                <p class="text-sm">
-                    Untuk mengisi data orang tua kamu bisa klik menu terus pendaftaran terus klik data orang tua
-                </p>
-            </li>
-            <li>
-                <p class="font-bold">Langkah Terakhir</p>
-                <p class="font-semibold italic">Isi Data Orang Tua</p>
-                <p class="text-sm">
-                    Untuk mengisi data orang tua kamu bisa klik menu terus pendaftaran terus klik data orang tua
-                </p>
-            </li>
-        </ul>
+        <div class=" bg-destructive-foreground  px-9 py-8 rounded shadow-card-foreground space-y-3">
+          @include('pages.partials.pendaftaran.partials.panduan_pendaftaran')
+        </div>
     </div>
     <div class="">
         <h1 class="my-3 font-semibold text-muted-foreground uppercase">Progress Pendaftaran Anda</h1>
-        <div class="bg-secondary rounded-lg p-4 space-y-2">
-
+        <div class=" bg-destructive-foreground rounded-lg p-4 space-y-2">
             @foreach ($progress as $key => $item)
                 <div class="flex justify-between mb-1">
                     <span
