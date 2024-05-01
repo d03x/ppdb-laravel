@@ -10,7 +10,7 @@
                     <option value="{{ $item->$value ?? $item[$value] }}">{{ $item->$label ?? $item[$label] }}</option>
                 @endif
             @else
-                 <option value="{{ $key }}">{{ $item }}</option>
+                 <option value="{{ $item }}">{{ $item }}</option>
             @endif
         @endforeach
     @endif

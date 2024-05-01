@@ -22,6 +22,7 @@ Route::middleware(['auth', UserMiddleware::class])->group(function () {
         Route::post('pendaftaran/simpan', [PendaftaranController::class, 'simpan_pendaftaran'])->name('pendaftaran.simpan');
         Route::prefix('/pendaftaran/form')->name('pendaftaran.forms.')->group(function(){
             Route::get('biodata',BiodataController::class)->name('biodata');
+            Route::post('biodata',[BiodataController::class,'simpan'])->name('biodata.simpan');
         });
     });
 });

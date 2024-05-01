@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Exceptions\GagalMenyimpanDataException;
 use App\Models\Formulir;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,5 +43,11 @@ class FormulirService
             }
        }
        return $persentases;
+    }
+    public function simpanBiodata(array $data){
+        if( Auth::user()->formulir()->update($data) ) {
+            return true;
+        }
+        throw new GagalMenyimpanDataException("Data gagal di simpan");
     }
 }
